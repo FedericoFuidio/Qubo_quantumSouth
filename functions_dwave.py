@@ -16,7 +16,7 @@ def get_Q_Peso(max_weight, weights, num_slack_weights, num_slack):
  
     pesosSlacks = (2 ** (np.arange(num_slack_weights - 1))).astype(float)
     pesosSlacks = np.r_[pesosSlacks, max_weight - sum(pesosSlacks)] # revisar esto.
-    #pesosSlacks = np.r_[[1,2,4,8,16],[2]]
+    # pesosSlacks = np.r_[[1,2,4,8,16],[2]]
     vect = np.r_[weights, pesosSlacks, np.zeros(num_slack - num_slack_weights)] #Agregamos un menos weights, a ver que sale
     
     qubo = np.outer(vect, vect) - 2 * max_weight * np.diag(vect)
